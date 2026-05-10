@@ -7,7 +7,7 @@
 
 <title>Prva sveta pričest</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400&family=Great+Vibes&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 
@@ -17,11 +17,16 @@ padding:0;
 box-sizing:border-box;
 }
 
+html{
+scroll-behavior:smooth;
+}
+
 body{
 font-family:'Poppins',sans-serif;
 color:#5a4b44;
 text-align:center;
 overflow-x:hidden;
+background:#fdfaf6;
 }
 
 /* INTRO */
@@ -32,46 +37,42 @@ top:0;
 left:0;
 width:100%;
 height:100%;
+
 background:
-linear-gradient(rgba(255,255,255,0.6),rgba(255,255,255,0.7)),
+linear-gradient(rgba(255,255,255,0.58),rgba(255,255,255,0.72)),
 url(hero.jpg);
+
 background-size:cover;
 background-position:center;
 
 display:flex;
-flex-direction:column;
 justify-content:center;
 align-items:center;
+
 font-family:'Playfair Display',serif;
 font-size:2em;
 color:#bfa46f;
+
 z-index:2000;
+
 animation:fade 4s forwards;
+padding:20px;
 }
 
-/* BLAGA ANIMACIJA TEKSTA */
 #intro span{
 animation:float 3s ease-in-out infinite;
-}
-
-@keyframes fade{
-0%{opacity:1}
-70%{opacity:1}
-100%{opacity:0;visibility:hidden}
-}
-
-@keyframes float{
-0%,100%{transform:translateY(0)}
-50%{transform:translateY(-8px)}
+text-shadow:0 4px 15px rgba(0,0,0,0.08);
 }
 
 /* HERO */
 
 .hero{
 height:100vh;
+
 background:
-linear-gradient(rgba(255,255,255,0.7),rgba(255,255,255,0.75)),
+linear-gradient(rgba(255,255,255,0.58),rgba(255,255,255,0.72)),
 url(hero.jpg);
+
 background-size:cover;
 background-position:center;
 
@@ -79,26 +80,29 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-animation:fadeIn 2s ease;
-}
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
+backdrop-filter:blur(2px);
+
+padding:20px;
+position:relative;
+
+animation:fadeIn 2s ease;
 }
 
 .hero h1{
 font-family:'Great Vibes',cursive;
-font-size:3.5em;
+font-size:4.2em;
+letter-spacing:1px;
 color:#bfa46f;
 margin-bottom:10px;
+text-shadow:0 4px 15px rgba(0,0,0,0.08);
 animation:fadeUp 1.5s ease;
 }
 
 .hero h2{
 font-family:'Playfair Display',serif;
-font-size:1.6em;
-margin-bottom:10px;
+font-size:1.7em;
+margin-bottom:12px;
 animation:fadeUp 2s ease;
 }
 
@@ -107,72 +111,99 @@ font-size:1.1em;
 animation:fadeUp 2.5s ease;
 }
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px)}
-to{opacity:1;transform:translateY(0)}
-}
-
 /* CTA */
 
 .cta{
 margin-top:40px;
-padding:16px 36px;
-border-radius:40px;
+padding:18px 42px;
+
 border:none;
+border-radius:50px;
+
 background:linear-gradient(135deg,#d4b87c,#bfa46f);
+
 color:white;
 font-size:16px;
+font-weight:500;
+letter-spacing:0.5px;
+
 cursor:pointer;
-transition:0.3s;
-box-shadow:0 5px 20px rgba(0,0,0,0.15);
+
+transition:0.35s ease;
+
+box-shadow:0 10px 30px rgba(191,164,111,0.35);
 }
 
 .cta:hover{
-transform:scale(1.08);
-box-shadow:0 8px 25px rgba(0,0,0,0.2);
+transform:translateY(-3px) scale(1.05);
+box-shadow:0 14px 35px rgba(191,164,111,0.4);
 }
 
 /* SEKCIJE */
 
 section{
-padding:80px 20px;
+padding:90px 20px;
+position:relative;
+}
+
+/* DIVIDER */
+
+.divider{
+font-size:22px;
+color:#d4b87c;
+margin:10px 0 50px;
+letter-spacing:8px;
+}
+
+/* MESSAGE */
+
+.message{
+max-width:780px;
+margin:auto;
+
+font-size:1.15em;
+line-height:2em;
+
+background:rgba(255,255,255,0.82);
+
+backdrop-filter:blur(12px);
+
+border-radius:24px;
+
+padding:55px 45px;
+
+box-shadow:0 15px 40px rgba(0,0,0,0.08);
+
 animation:fadeIn 1.5s ease;
 }
 
-/* PORUKA */
-
-.message{
-max-width:750px;
-margin:auto;
-font-size:1.2em;
-line-height:1.9em;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(10px);
-border-radius:20px;
-padding:50px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
-
-/* GALERIJA */
+/* GALLERY */
 
 .gallery{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:15px;
-max-width:1000px;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:18px;
+
+max-width:1100px;
 margin:auto;
 }
 
 .gallery img{
 width:100%;
-border-radius:12px;
+aspect-ratio:1/1;
+object-fit:cover;
+
+border-radius:16px;
+
 cursor:pointer;
-transition:0.4s;
-box-shadow:0 8px 20px rgba(0,0,0,0.1);
+
+transition:0.45s ease;
+
+box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
 
 .gallery img:hover{
-transform:scale(1.07);
+transform:scale(1.06);
 }
 
 /* LIGHTBOX */
@@ -181,29 +212,144 @@ transform:scale(1.07);
 position:fixed;
 top:0;
 left:0;
+
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.85);
+
+background:rgba(0,0,0,0.88);
+
 display:none;
 align-items:center;
 justify-content:center;
-z-index:1000;
+
+z-index:3000;
+
+padding:20px;
 }
 
 #lightbox img{
 max-width:90%;
-max-height:80%;
-border-radius:10px;
+max-height:85%;
+border-radius:18px;
+
+animation:zoom 0.4s ease;
 }
 
-/* ZAVRŠNA PORUKA */
+/* CLOSING */
 
 .closing{
-font-size:1.6em;
+font-size:1.7em;
 font-family:'Playfair Display',serif;
 color:#bfa46f;
-margin-top:40px;
+
+margin-top:60px;
+
 animation:fadeUp 2s ease;
+}
+
+/* ANIMATIONS */
+
+@keyframes fade{
+0%{
+opacity:1;
+}
+
+70%{
+opacity:1;
+}
+
+100%{
+opacity:0;
+visibility:hidden;
+}
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes zoom{
+from{
+transform:scale(0.8);
+opacity:0;
+}
+
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+#intro{
+font-size:1.4em;
+}
+
+.hero h1{
+font-size:3em;
+}
+
+.hero h2{
+font-size:1.3em;
+}
+
+.hero p{
+font-size:1em;
+}
+
+.cta{
+padding:16px 34px;
+font-size:15px;
+}
+
+.message{
+padding:35px 25px;
+font-size:1.05em;
+line-height:1.8em;
+}
+
+.closing{
+font-size:1.35em;
+}
+
+.gallery{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
 }
 
 </style>
@@ -211,13 +357,19 @@ animation:fadeUp 2s ease;
 
 <body>
 
+<!-- INTRO -->
+
 <div id="intro">
 <span>✨ Hvala što ste bili dio mog posebnog dana ✨</span>
 </div>
 
+<!-- MUSIC -->
+
 <audio id="music" loop>
 <source src="coma-media-soft-corporate_forbidden-woods-11747.mp3" type="audio/mpeg">
 </audio>
+
+<!-- HERO -->
 
 <section class="hero">
 
@@ -233,7 +385,11 @@ Pogledaj uspomene
 
 </section>
 
+<!-- MESSAGE -->
+
 <section>
+
+<div class="divider">✧ ✧ ✧</div>
 
 <div class="message">
 
@@ -249,16 +405,20 @@ Radujem se što ove uspomene mogu podijeliti s vama.
 
 </section>
 
+<!-- GALLERY -->
+
 <section id="gallery">
+
+<div class="divider">✧ ✧ ✧</div>
 
 <div class="gallery">
 
-<img src="photos/01.jpg">
-<img src="photos/02.jpg">
-<img src="photos/03.jpg">
-<img src="photos/04.jpg">
-<img src="photos/05.jpg">
-
+<img src="photos/01.jpg" alt="">
+<img src="photos/02.jpg" alt="">
+<img src="photos/03.jpg" alt="">
+<img src="photos/04.jpg" alt="">
+<img src="photos/05.jpg" alt="">
+<img src="photos/06.jpg" alt="">
 
 </div>
 
@@ -271,34 +431,52 @@ Petra 🤍
 
 </section>
 
+<!-- LIGHTBOX -->
+
 <div id="lightbox" onclick="closeLightbox()">
 <img id="lightbox-img">
 </div>
 
 <script>
 
+/* START EXPERIENCE */
+
 function startExperience(){
-const music = document.getElementById("music");
-music.play().catch(()=>{}); // za mobitele
+
+const music=document.getElementById("music");
+
+music.play().catch(()=>{});
 
 document.getElementById("gallery").scrollIntoView({
 behavior:"smooth"
 });
+
 }
 
+/* LIGHTBOX */
+
 const images=document.querySelectorAll(".gallery img");
+
 const lightbox=document.getElementById("lightbox");
+
 const lightboxImg=document.getElementById("lightbox-img");
 
 images.forEach(img=>{
+
 img.addEventListener("click",()=>{
+
 lightbox.style.display="flex";
+
 lightboxImg.src=img.src;
+
 });
+
 });
 
 function closeLightbox(){
+
 lightbox.style.display="none";
+
 }
 
 </script>
